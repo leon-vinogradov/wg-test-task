@@ -1,0 +1,29 @@
+{
+  "name": "wg-test-task",
+  "description": "WG test task",
+  "version": "1.0.0",
+  "author": "Leon Vinogradov <leon.vinogradov@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "yarn && webpack",
+    "start": "yarn build && nodemon src/server/server.js",
+    "dev": "webpack --watch"
+  },
+  "dependencies": {
+    "express": "4.15.3",
+    "marked": "0.3.6",
+    "nodemon": "1.11.0",
+    "nunjucks": "3.0.1",
+    "vue": "2.4.2",
+    "vue-router": "2.7.0",
+    "vuex": "2.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-preset-env": "1.6.0",
+    "vue-loader": "13.0.2",
+    "vue-template-compiler": "2.4.2",
+    "webpack": "3.4.0"
+  }
+}
