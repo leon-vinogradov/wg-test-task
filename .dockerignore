@@ -3,5 +3,6 @@
 .gitignore
 .idea
 Dockerfile
+.yarnclean
 yarn.lock
 yarn-error.log

@@ -1,5 +1,6 @@
 .idea
 dist
 node_modules
+.yarnclean
 yarn.lock
 yarn-error.log
