@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
-import PlayerList from './player-list.jsx';
-import PlayerDetails from './player-details.jsx';
+import PageList from './page-list.jsx';
+import PageCompare from './page-compare.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,14 +45,29 @@ class App extends React.Component {
 
   render() {
     const players = this.state.players;
-    const player = this.state.selectedPlayer;
+    const selectedPlayer = this.state.selectedPlayer;
 
     return (
       <div>
         <h2>Implementation on React</h2>
 
-        <PlayerList players={players} onPlayerClick={this.handlePlayerClick} />
-        <PlayerDetails player={player} />
+        <Router>
+          <div>
+            <ul>
+              <li><Link to="/">List of players</Link></li>
+              <li><Link to="/compare">Comparison of players</Link></li>
+            </ul>
+
+            <Switch>
+              <Route exact path="/" render={props => (
+                <PageList players={players} selectedPlayer={selectedPlayer} onPlayerClick={this.handlePlayerClick} />
+              )} />
+              <Route exact path="/compare" render={props => (
+                <PageCompare players={players} />
+              )} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }

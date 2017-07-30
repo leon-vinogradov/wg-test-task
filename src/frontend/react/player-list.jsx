@@ -10,7 +10,7 @@ export default class PlayerList extends React.Component {
 
         <ul>
           { this.props.players.map((player) =>
-              <PlayerListItem key={player.id} player={player} onPlayerClick={this.props.onPlayerClick} />
+            <PlayerListItem key={player.id} player={player} onPlayerClick={this.props.onPlayerClick} />
           )}
         </ul>
       </section>
