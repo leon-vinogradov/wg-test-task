@@ -1,11 +1,13 @@
 var path = require('path')
 
 module.exports = {
-  entry: './src/frontend/vue/app.js',
+  entry: {
+    'react': './src/frontend/react/app.jsx',
+    'vue': './src/frontend/vue/app.js'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build-vue.js'
+    filename: 'build-[name].js'
   },
   module: {
     rules: [
@@ -16,7 +18,16 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        options: {
+          presets: ["env"]
+        },
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+        options: {
+          presets: ["es2015", "react"]
+        },
       }
     ]
   }
